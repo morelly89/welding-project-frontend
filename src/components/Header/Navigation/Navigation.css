@@ -1,0 +1,44 @@
+.navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation__title {
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation__title span {
+  color: #f97316;
+  font-family: "Inter", sans-serif;
+}
+
+.navigation__link-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 550px;
+  height: 39px;
+}
+.navigation__login-button {
+  margin-left: 60px;
+  font-family: "Inter", sans-serif;
+}
+
+.navigation__link {
+  text-decoration: none;
+  color: #808080;
+  font-family: "Inter", sans-serif;
+}
+
+.navigation__login-button {
+  color: #f97316;
+  border: 2px solid #f97316;
+  border-radius: 8px;
+  width: 120px;
+  height: 40px;
+  background: transparent;
+  font-family: "Inter", sans-serif;
+}

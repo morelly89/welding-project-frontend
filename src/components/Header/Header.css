@@ -1,0 +1,8 @@
+header {
+  background: #111111;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}

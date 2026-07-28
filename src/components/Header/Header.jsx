@@ -1,13 +1,12 @@
+import Navigation from "./Navigation/Navigation";
 import "./Header.css";
-import Navigation from "../Navigation/Navigation";
-import SearchForm from "../SearchForm/SearchForm";
+import Hero from "./Hero/Hero";
 
 function Header() {
   return (
     <header className="header">
-      <div className="header__logo">WeldCraft</div>
       <Navigation />
-      <SearchForm />
+      <Hero />
     </header>
   );
 }
