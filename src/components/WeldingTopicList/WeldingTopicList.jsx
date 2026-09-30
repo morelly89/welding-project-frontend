@@ -9,22 +9,25 @@ const weldingTopics = [
     title: "MIG Welding",
     description: "Fast and reliable welding for steel fabrication.",
     image: migImage,
+    path: "/mig-welding",
   },
   {
     title: "TIG Welding",
     description: "Clean precision welding for aluminum and stainless steel.",
     image: tigImage,
+    path: "/tig-welding",
   },
   {
     title: "Stick Welding",
     description: "Strong welds for thicker steel and outdoor work.",
     image: stickImage,
+    path: "/stick-welding",
   },
 ];
 
 function WeldingTopicList() {
   return (
-    <section className="welding-topics">
+    <section className="welding-topics" id="topics">
       <div className="welding-topics__text-container">
         <h2 className="welding-topics__title">Welding Topics</h2>
         <h1 className="welding-topics__text">Learn. Improve. Build</h1>
@@ -41,6 +44,7 @@ function WeldingTopicList() {
             title={topic.title}
             description={topic.description}
             image={topic.image}
+            path={topic.path}
           />
         ))}
       </div>

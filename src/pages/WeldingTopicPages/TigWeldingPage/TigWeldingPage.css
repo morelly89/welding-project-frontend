@@ -1,0 +1,134 @@
+.tig-page {
+  min-height: 100vh;
+  background: #f6f6f6;
+  color: #1f1f1f;
+}
+
+.tig-page__hero {
+  padding: 90px 24px 70px;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.tig-page__hero h1 {
+  margin: 0 0 24px;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.tig-page__hero p {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.tig-page__section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 24px;
+}
+
+.tig-page__section + .tig-page__section {
+  border-top: 1px solid #d8d8d8;
+}
+
+.tig-page__section h2 {
+  margin: 0 0 30px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.tig-page__section h3 {
+  margin: 35px 0 16px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.tig-page__section p {
+  max-width: 800px;
+  margin: 0 0 22px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.tig-page strong {
+  font-weight: 700;
+}
+
+/* TIG technique section */
+
+.tig-page__technique-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.tig-page__technique-item {
+  max-width: 850px;
+}
+
+.tig-page__technique-item h3 {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.tig-page__technique-item p {
+  max-width: 800px;
+  margin: 0 0 22px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.tig-page__technique-image {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: auto;
+  margin: 30px auto 0;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 768px) {
+  .tig-page__hero {
+    padding: 60px 20px 50px;
+  }
+
+  .tig-page__hero h1 {
+    font-size: 42px;
+  }
+
+  .tig-page__hero p {
+    font-size: 16px;
+  }
+
+  .tig-page__section {
+    padding: 50px 20px;
+  }
+
+  .tig-page__section h2 {
+    font-size: 30px;
+  }
+
+  .tig-page__section p {
+    font-size: 16px;
+  }
+
+  .tig-page__technique-list {
+    gap: 40px;
+  }
+
+  .tig-page__technique-item p {
+    font-size: 16px;
+  }
+
+  .tig-page__technique-image {
+    margin-top: 24px;
+  }
+}

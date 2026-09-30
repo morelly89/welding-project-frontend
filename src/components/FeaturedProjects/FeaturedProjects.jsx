@@ -30,14 +30,15 @@ const weldingProjects = [
 
 function FeaturedProjects() {
   return (
-    <section className="featured-projects">
+    <section className="featured-projects" id="projects">
       <div className="featured-projects__text">
         <h2 className="featured-projects__title">Featured Projects</h2>
+
         <h3 className="featured-projects__description">
-          {" "}
           Recent Welding Projects
         </h3>
-        <p className="featured-projects___paragraph">
+
+        <p className="featured-projects__paragraph">
           Check out some of the custom fabrication and welding projects I’ve
           worked on.
         </p>

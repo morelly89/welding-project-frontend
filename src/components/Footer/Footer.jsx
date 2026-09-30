@@ -3,7 +3,7 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <footer className="footer">
+    <footer className="footer" id="contact">
       <div className="footer__container">
         <div className="footer__brand">
           <img className="footer__logo" src={logo} alt="Morelly Welding logo" />

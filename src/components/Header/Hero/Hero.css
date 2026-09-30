@@ -42,7 +42,7 @@ h3 {
 }
 
 .hero__paragraph-text {
-  font-size: 20;
+  font-size: 20px;
   color: #e5e7eb;
   max-width: 400px;
   font-family: "Inter", sans-serif;
@@ -71,4 +71,35 @@ h3 {
   border: 2px solid #f97316;
   color: #f97316;
   border-radius: 6px;
+}
+
+@media screen and (max-width: 900px) {
+  .hero__container {
+    flex-direction: column;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px 20px;
+  }
+
+  .hero__image {
+    width: 100%;
+    max-width: 455px;
+    height: auto;
+  }
+
+  .hero__paragraph-container {
+    width: 100%;
+  }
+
+  .hero__paragraph-text {
+    max-width: 500px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .hero-button__container {
+    grid-template-columns: 160px;
+    gap: 20px;
+    padding-top: 40px;
+  }
 }

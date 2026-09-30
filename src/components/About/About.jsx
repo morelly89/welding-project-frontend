@@ -5,9 +5,10 @@ function About() {
     <section className="about" id="about">
       <div className="about__content">
         <h2 className="about__title">ABOUT MORELLY WELDING</h2>
-        <h1 className="about__description">
+
+        <h3 className="about__description">
           Built With Precision, Strength, and Pride.
-        </h1>
+        </h3>
 
         <div className="about__text-container">
           <p className="about__text">
@@ -16,9 +17,11 @@ function About() {
             customers learn about welding services, materials, and project
             options.
           </p>
-          <p className="about__text2">
-            My goal is to share my welding/fabrication journey with you and
-            share my knowledge and experience
+
+          <p className="about__text about__text--right">
+            My goal is to share my welding and fabrication journey while passing
+            along the knowledge and experience I’ve gained through hands-on
+            work.
           </p>
         </div>
       </div>
