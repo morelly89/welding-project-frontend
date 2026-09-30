@@ -1,16 +1,69 @@
-# React + Vite
+# Morelly Welding
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Morelly Welding is my final project for the TripleTen Software Engineering program.
 
-Currently, two official plugins are available:
+I built this project around something I already know and work with in real life: welding and fabrication. The goal was to create a website where users can learn a little about different welding processes, view some of my projects, create an account, and submit a welding or fabrication request.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What the site can do
 
-## React Compiler
+Users can:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Create an account and log in
+- Update their name and profile picture
+- View welding topics and featured projects
+- Submit a welding or fabrication project request
+- View their previous project requests
+- Cancel a project request
+- Use a unit converter for common measurements used in fabrication
 
-## Expanding the ESLint configuration
+## Unit Converter
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+I added a unit converter because measurements are an important part of fabrication.
+
+The converter uses a third-party API and can convert between units such as:
+
+- Inches
+- Centimeters
+- Millimeters
+- Feet
+- Meters
+
+The API request is handled with JavaScript `fetch()` inside the `utils` folder.
+
+## Technologies
+
+### Frontend
+
+- React
+- React Router
+- JavaScript
+- HTML
+- CSS
+- Vite
+
+### Backend
+
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- JWT authentication
+- bcrypt
+- Resend
+
+## Main Components
+
+Some of the main components in the project are:
+
+- Header
+- Navigation
+- Hero
+- Main
+- Welding Topics
+- Featured Projects
+- Project Request
+- Unit Converter
+- My Requests
+- Login Modal
+- Signup Modal
+- Footer

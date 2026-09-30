@@ -1,0 +1,70 @@
+.featured-projects {
+  background-color: #d9d9d9;
+  min-height: 100vh;
+  padding: 30px 40px 40px;
+  box-sizing: border-box;
+}
+
+.featured-projects__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.featured-projects__title {
+  font-size: 24px;
+  color: #f97316;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.featured-projects__description {
+  font-size: 40px;
+  color: #111827;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.featured-projects__paragraph {
+  font-size: 16px;
+  color: #6b7280;
+  font-weight: 500;
+  line-height: 1.5;
+  max-width: 600px;
+  margin: 0;
+}
+
+.welding-projects__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 300px));
+  justify-content: center;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media screen and (max-width: 950px) {
+  .welding-projects__list {
+    grid-template-columns: repeat(2, minmax(0, 300px));
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .featured-projects {
+    min-height: auto;
+    padding: 40px 20px;
+  }
+
+  .featured-projects__description {
+    font-size: 32px;
+  }
+
+  .welding-projects__list {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 24px;
+  }
+}

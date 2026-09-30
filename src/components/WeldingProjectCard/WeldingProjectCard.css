@@ -1,0 +1,36 @@
+.welding-project-card {
+  width: 260px;
+  list-style: none;
+  border: 2px solid black;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.welding-project-card__image {
+  width: 100%;
+  display: block;
+  height: 280px;
+  object-fit: cover;
+}
+
+.welding-project-card__content {
+  width: 100%;
+  text-align: center;
+}
+
+.welding-project__title {
+  color: #f97316;
+  -webkit-text-stroke: 1px black;
+  font-weight: 500;
+  margin: 0;
+  padding: 8px 0 8px;
+}
+
+.welding-project__description {
+  color: black;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-wrap: break-word;
+  line-height: 1.25;
+}

@@ -1,0 +1,335 @@
+.project-request {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff7f7;
+}
+
+.project-request__container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 30px 40px 40px;
+}
+
+/* Top section heading */
+
+.project-request__text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+.project-request__title {
+  margin: 0;
+  color: #f97316;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.project-request__text {
+  margin: 0;
+  padding: 0;
+  color: #111827;
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.project-request__paragraph {
+  max-width: 500px;
+  margin: 0;
+  color: #6b7280;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+/* Left information and right form */
+
+.project-request__flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 70px;
+}
+
+.project-request__content {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+}
+
+.project-request__content-title {
+  margin: 0;
+  font-size: 28px;
+}
+
+.project-request__content-paragraph {
+  margin: 0;
+  color: #6b7280;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.project-request__content-email,
+.project-request__content-phone,
+.project-request__content-location {
+  margin: 0;
+  color: #6b7280;
+}
+
+/* Form container */
+
+.project-request__form-container {
+  width: 100%;
+  max-width: 460px;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid rgba(33, 28, 28, 0.08);
+  border-radius: 8px;
+  background-color: #d1d5db;
+  padding: 20px;
+}
+
+/* Form grid */
+
+.project-request__form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px 18px;
+}
+
+.project-request__form-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.project-request__form-label {
+  font-weight: 500;
+}
+
+.project-request__form-input {
+  width: 100%;
+  min-width: 0;
+  height: 38px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  background-color: white;
+}
+
+/* Description field */
+
+.project-request__textarea__form-field {
+  grid-column: 1 / -1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project-request__textarea {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+/* Submit button */
+
+.project-request__form-button {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 40px;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  background-color: #f97316;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.project-request__form-button:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.project-request__status {
+  grid-column: 1 / -1;
+  margin: 0;
+  text-align: center;
+}
+
+/* Logged-out / locked state */
+
+.project-request_locked {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.project-request_locked .project-request__container {
+  max-width: 720px;
+  padding: 48px 44px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+}
+
+.project-request_locked .project-request__text-container {
+  margin-bottom: 0;
+  row-gap: 16px;
+}
+
+.project-request_locked .project-request__title {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.project-request_locked .project-request__text {
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.project-request_locked .project-request__paragraph {
+  max-width: 540px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.project-request__locked-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.project-request__locked-actions .project-request__form-button {
+  width: 150px;
+  min-height: 44px;
+  padding: 0 20px;
+}
+
+/* Secondary Sign Up button */
+.project-request__locked-actions .project-request__form-button:last-child {
+  border: 2px solid #f97316;
+  background-color: #ffffff;
+  color: #f97316;
+}
+
+/* Tablet */
+
+@media screen and (max-width: 950px) {
+  .project-request {
+    min-height: auto;
+  }
+
+  .project-request__container {
+    padding: 40px 24px;
+  }
+
+  .project-request__text-container {
+    margin-bottom: 30px;
+  }
+
+  .project-request__flex-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 35px;
+  }
+
+  .project-request__content,
+  .project-request__form-container {
+    max-width: 600px;
+  }
+
+  .project-request__content {
+    row-gap: 18px;
+  }
+
+  .project-request_locked {
+    min-height: 500px;
+    padding: 40px 24px;
+  }
+
+  .project-request_locked .project-request__container {
+    padding: 40px 28px;
+  }
+}
+
+/* Mobile */
+
+@media screen and (max-width: 600px) {
+  .project-request__container {
+    padding: 35px 16px;
+  }
+
+  .project-request__text {
+    font-size: 32px;
+  }
+
+  .project-request__content-title {
+    font-size: 24px;
+  }
+
+  .project-request__form-container {
+    padding: 16px;
+  }
+
+  .project-request__form {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-request__textarea__form-field,
+  .project-request__form-button,
+  .project-request__status {
+    grid-column: 1;
+  }
+
+  .project-request_locked {
+    min-height: 440px;
+    padding: 30px 16px;
+  }
+
+  .project-request_locked .project-request__container {
+    padding: 32px 20px;
+  }
+
+  .project-request_locked .project-request__text {
+    font-size: 30px;
+  }
+
+  .project-request_locked .project-request__paragraph {
+    font-size: 15px;
+  }
+
+  .project-request__locked-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-request__locked-actions .project-request__form-button {
+    width: 100%;
+  }
+}
