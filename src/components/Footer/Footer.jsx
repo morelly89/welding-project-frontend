@@ -41,8 +41,10 @@ function Footer() {
           <div className="footer__contact">
             <h3 className="footer__heading">CONTACT</h3>
 
-            <p className="footer__contact-item">Email</p>
-            <p className="footer__contact-item">Phone</p>
+            <p className="footer__contact-item">
+              Email: morellywelding@gmail.com
+            </p>
+            <p className="footer__contact-item">Phone: 508-406-8760</p>
             <p className="footer__contact-item">Brockton MA</p>
           </div>
         </div>

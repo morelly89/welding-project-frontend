@@ -3,13 +3,17 @@ import FeaturedProjects from "../FeaturedProjects/FeaturedProjects";
 import ProjectRequest from "../ProjectRequest/ProjectRequest";
 import WeldingTopicList from "../WeldingTopicList/WeldingTopicList";
 
-function Main() {
+function Main({ isLoggedIn, onLoginClick, onSignupClick }) {
   return (
     <main className="main">
       <WeldingTopicList />
       <FeaturedProjects />
       <About />
-      <ProjectRequest />
+      <ProjectRequest
+        isLoggedIn={isLoggedIn}
+        onLoginClick={onLoginClick}
+        onSignupClick={onSignupClick}
+      />
     </main>
   );
 }

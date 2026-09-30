@@ -75,6 +75,13 @@ function Navigation({
     }
   }, [currentUser]);
 
+  const handleRequestProject = (e) => {
+    if (!isLoggedIn) {
+      e.preventDefault();
+      onLoginClick();
+    }
+  };
+
   return (
     <nav className="navigation">
       <h1 className="navigation__title">
@@ -98,7 +105,11 @@ function Navigation({
           About
         </a>
 
-        <a className="navigation__link" href="#project-request">
+        <a
+          className="navigation__link"
+          href="#project-request"
+          onClick={handleRequestProject}
+        >
           Request a Project
         </a>
 

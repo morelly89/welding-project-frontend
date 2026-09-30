@@ -159,16 +159,81 @@
   background-color: #f97316;
   font-weight: 600;
   cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .project-request__form-button:hover {
   opacity: 0.9;
+  transform: translateY(-1px);
 }
 
 .project-request__status {
   grid-column: 1 / -1;
   margin: 0;
   text-align: center;
+}
+
+/* Logged-out / locked state */
+
+.project-request_locked {
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  box-sizing: border-box;
+}
+
+.project-request_locked .project-request__container {
+  max-width: 720px;
+  padding: 48px 44px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 10px 30px rgba(17, 24, 39, 0.08);
+}
+
+.project-request_locked .project-request__text-container {
+  margin-bottom: 0;
+  row-gap: 16px;
+}
+
+.project-request_locked .project-request__title {
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.project-request_locked .project-request__text {
+  font-size: 38px;
+  line-height: 1.2;
+}
+
+.project-request_locked .project-request__paragraph {
+  max-width: 540px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.project-request__locked-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.project-request__locked-actions .project-request__form-button {
+  width: 150px;
+  min-height: 44px;
+  padding: 0 20px;
+}
+
+/* Secondary Sign Up button */
+.project-request__locked-actions .project-request__form-button:last-child {
+  border: 2px solid #f97316;
+  background-color: #ffffff;
+  color: #f97316;
 }
 
 /* Tablet */
@@ -200,6 +265,15 @@
   .project-request__content {
     row-gap: 18px;
   }
+
+  .project-request_locked {
+    min-height: 500px;
+    padding: 40px 24px;
+  }
+
+  .project-request_locked .project-request__container {
+    padding: 40px 28px;
+  }
 }
 
 /* Mobile */
@@ -230,5 +304,32 @@
   .project-request__form-button,
   .project-request__status {
     grid-column: 1;
+  }
+
+  .project-request_locked {
+    min-height: 440px;
+    padding: 30px 16px;
+  }
+
+  .project-request_locked .project-request__container {
+    padding: 32px 20px;
+  }
+
+  .project-request_locked .project-request__text {
+    font-size: 30px;
+  }
+
+  .project-request_locked .project-request__paragraph {
+    font-size: 15px;
+  }
+
+  .project-request__locked-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .project-request__locked-actions .project-request__form-button {
+    width: 100%;
   }
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./ProjectRequest.css";
 import UnitConverter from "./UnitConverter/UnitConverter";
 
-function ProjectRequest() {
+function ProjectRequest({ isLoggedIn, onLoginClick, onSignupClick }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,6 +24,7 @@ function ProjectRequest() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     const token = localStorage.getItem("jwt");
 
     try {
@@ -59,6 +60,46 @@ function ProjectRequest() {
       setMessage("Something went wrong. Please try again.");
     }
   };
+
+  if (!isLoggedIn) {
+    return (
+      <div
+        className="project-request project-request_locked"
+        id="project-request"
+      >
+        <div className="project-request__container">
+          <div className="project-request__text-container">
+            <h2 className="project-request__title">PROJECT REQUEST</h2>
+
+            <h3 className="project-request__text">Ready to Start a Project?</h3>
+
+            <p className="project-request__paragraph">
+              Please log in to submit a welding or fabrication project request.
+              If you do not have an account yet, create one first.
+            </p>
+
+            <div className="project-request__locked-actions">
+              <button
+                className="project-request__form-button"
+                type="button"
+                onClick={onLoginClick}
+              >
+                Log In
+              </button>
+
+              <button
+                className="project-request__form-button"
+                type="button"
+                onClick={onSignupClick}
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="project-request" id="project-request">
@@ -210,6 +251,7 @@ function ProjectRequest() {
               {message && <p className="project-request__status">{message}</p>}
             </form>
           </div>
+
           <UnitConverter />
         </div>
       </div>

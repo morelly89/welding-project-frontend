@@ -1,7 +1,16 @@
 import weldingPic from "../../../assets/welding-pic.jpg";
 import "./Hero.css";
 
-function Hero() {
+function Hero({ onLoginClick, isLoggedIn }) {
+  const handleRequestProject = () => {
+    if (!isLoggedIn) {
+      onLoginClick();
+      return;
+    }
+
+    const section = document.getElementById("project-request");
+    section?.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <div className="hero__container">
       <div className="hero__paragraph-container">
@@ -15,8 +24,13 @@ function Hero() {
           custom metalwork built with precision, strength, and pride.
         </p>{" "}
         <div className="hero-button__container">
-          <button className="hero-button_black">View Projects</button>
-          <button className="hero-button_orange">Request a Project</button>
+          {/* <button className="hero-button_black">View Projects</button> */}
+          <a href="#projects" className="hero-button_black">
+            View Projects
+          </a>
+          <button className="hero-button_orange" onClick={handleRequestProject}>
+            Request a Project
+          </button>
         </div>
       </div>
       <img className="hero__image" src={weldingPic}></img>

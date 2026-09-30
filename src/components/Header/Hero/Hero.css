@@ -71,6 +71,7 @@ h3 {
   border: 2px solid #f97316;
   color: #f97316;
   border-radius: 6px;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 900px) {

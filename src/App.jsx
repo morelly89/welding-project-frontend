@@ -88,7 +88,11 @@ function App() {
               onUserUpdate={handleUserUpdate}
             />
 
-            <Main />
+            <Main
+              isLoggedIn={isLoggedIn}
+              onLoginClick={handleLoginClick}
+              onSignupClick={handleSignupClick}
+            />
 
             <LoginModal
               isOpen={activeModal === "login"}

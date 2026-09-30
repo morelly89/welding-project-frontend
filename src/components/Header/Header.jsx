@@ -18,7 +18,7 @@ function Header({
         onLogout={onLogout}
         onUserUpdate={onUserUpdate}
       />
-      <Hero />
+      <Hero isLoggedIn={isLoggedIn} onLoginClick={onLoginClick} />
     </header>
   );
 }
