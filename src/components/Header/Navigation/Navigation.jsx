@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { updateCurrentUser, updateProfileImage } from "../../../utils/authApi";
 import "./Navigation.css";
+
 function Navigation({
   onLoginClick,
   currentUser,
@@ -12,7 +13,6 @@ function Navigation({
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [name, setName] = useState(currentUser?.name || "");
-  const [profileImage, setProfileImage] = useState(null);
 
   const navigate = useNavigate();
 
@@ -27,6 +27,11 @@ function Navigation({
       .slice(0, 2);
   };
 
+  const handleStartEdit = () => {
+    setName(currentUser.name);
+    setIsEditing(true);
+  };
+
   const handleSave = async () => {
     try {
       const token = localStorage.getItem("jwt");
@@ -36,7 +41,6 @@ function Navigation({
       });
 
       onUserUpdate(data.user);
-
       setIsEditing(false);
     } catch (error) {
       console.error("Failed to update profile:", error);
@@ -55,9 +59,6 @@ function Navigation({
 
       const data = await updateProfileImage(token, file);
 
-      console.log("Photo upload response:", data);
-      console.log("New profile image:", data.user.profileImage);
-
       onUserUpdate(data.user);
     } catch (error) {
       console.error("Failed to update profile image:", error);
@@ -68,12 +69,6 @@ function Navigation({
     setName(currentUser.name);
     setIsEditing(false);
   };
-
-  useEffect(() => {
-    if (currentUser) {
-      setName(currentUser.name);
-    }
-  }, [currentUser]);
 
   const handleRequestProject = (e) => {
     if (!isLoggedIn) {
@@ -158,6 +153,7 @@ function Navigation({
                   </p>
                 </div>
               </div>
+
               {isEditing ? (
                 <div className="navigation__profile-edit-actions">
                   <button
@@ -180,11 +176,12 @@ function Navigation({
                 <button
                   className="navigation__profile-menu-button"
                   type="button"
-                  onClick={() => setIsEditing(true)}
+                  onClick={handleStartEdit}
                 >
                   Edit Name
                 </button>
               )}
+
               <input
                 id="profile-image-input"
                 type="file"
@@ -203,7 +200,7 @@ function Navigation({
                 Change Photo
               </button>
 
-              <button onClick={() => navigate("/my-requests")}>
+              <button type="button" onClick={() => navigate("/my-requests")}>
                 My Requests
               </button>
 
