@@ -2,9 +2,21 @@
 
 Morelly Welding is my final project for the TripleTen Software Engineering program.
 
-I built this project around something I already know and work with in real life: welding and fabrication. The goal was to create a website where users can learn a little about different welding processes, view some of my projects, create an account, and submit a welding or fabrication request.
+I built this project around something I already know and work with in real life: welding and fabrication. The goal was to create a website where users can learn about different welding processes, view some of my projects, create an account, and submit a welding or fabrication request.
 
-## What the site can do
+## Live Website
+
+[Visit Morelly Welding](https://www.morellywelding.com)
+
+## Repositories
+
+Frontend repository:  
+[GitHub Frontend Repository](https://github.com/morelly89/welding-project-frontend.git)
+
+Backend repository:  
+[GitHub Backend Repository](https://github.com/morelly89/welding-project-backend.git)
+
+## What the Site Can Do
 
 Users can:
 
@@ -32,7 +44,7 @@ The API request is handled with JavaScript `fetch()` inside the `utils` folder.
 
 ## Technologies
 
-### Frontend
+### Frontend Technologies
 
 - React
 - React Router
@@ -41,7 +53,7 @@ The API request is handled with JavaScript `fetch()` inside the `utils` folder.
 - CSS
 - Vite
 
-### Backend
+### Backend Technologies
 
 - Node.js
 - Express
@@ -50,6 +62,17 @@ The API request is handled with JavaScript `fetch()` inside the `utils` folder.
 - JWT authentication
 - bcrypt
 - Resend
+
+### Deployment Technologies
+
+- Google Cloud
+- Nginx
+- PM2
+- MongoDB Atlas
+- Cloudflare DNS
+- Certbot
+- Let's Encrypt
+- HTTPS
 
 ## Main Components
 
@@ -67,3 +90,12 @@ Some of the main components in the project are:
 - Login Modal
 - Signup Modal
 - Footer
+
+## Running the Project Locally
+
+### Frontend Setup
+
+Clone the frontend repository:
+
+```bash
+git clone https://github.com/morelly89/welding-project-frontend.git
