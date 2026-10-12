@@ -1,122 +1,123 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { getCurrentUser } from "./utils/authApi";
+
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import LoginModal from "./components/LoginModal/LoginModal";
+import Main from "./components/Main/Main";
+import MyRequests from "./components/MyRequests/MyRequests";
+import SignupModal from "./components/SignupModal/SignupModal";
+import MigWeldingPage from "./pages/WeldingTopicPages/MigWeldingPage/MigWeldingPage";
+import StickWeldingPage from "./pages/WeldingTopicPages/StickWeldingPage/StickWeldingPage";
+import TigWeldingPage from "./pages/WeldingTopicPages/TigWeldingPage/TigWeldingPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [activeModal, setActiveModal] = useState("");
+  const [currentUser, setCurrentUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const closeActiveModal = () => {
+    setActiveModal("");
+  };
+
+  const handleLoginClick = () => {
+    setActiveModal("login");
+  };
+
+  const handleSignupClick = () => {
+    setActiveModal("signup");
+  };
+
+  const handleLoginSuccess = (data) => {
+    localStorage.setItem("jwt", data.token);
+    setCurrentUser(data.user);
+    setIsLoggedIn(true);
+  };
+  const handleLogout = () => {
+    localStorage.removeItem("jwt");
+    setCurrentUser(null);
+    setIsLoggedIn(false);
+  };
+
+  const handleUserUpdate = (updatedUser) => {
+    setCurrentUser(updatedUser);
+  };
+
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+
+    if (!token) {
+      return;
+    }
+
+    const restoreUser = async () => {
+      try {
+        const data = await getCurrentUser(token);
+        console.log("Backend /me response:", data);
+
+        setCurrentUser(data.user);
+        setIsLoggedIn(true);
+      } catch (error) {
+        console.error("Failed to restore user:", error);
+
+        localStorage.removeItem("jwt");
+        setCurrentUser(null);
+        setIsLoggedIn(false);
+      }
+    };
+
+    restoreUser();
+  }, []);
+
+  console.log("currentUser:", currentUser);
+  console.log("isLoggedIn:", isLoggedIn);
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div className="page">
+            <Header
+              onLoginClick={handleLoginClick}
+              currentUser={currentUser}
+              isLoggedIn={isLoggedIn}
+              onLogout={handleLogout}
+              onUserUpdate={handleUserUpdate}
+            />
 
-      <div className="ticks"></div>
+            <Main
+              isLoggedIn={isLoggedIn}
+              onLoginClick={handleLoginClick}
+              onSignupClick={handleSignupClick}
+            />
 
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+            <LoginModal
+              isOpen={activeModal === "login"}
+              onClose={closeActiveModal}
+              onSignupClick={handleSignupClick}
+              onLoginSuccess={handleLoginSuccess}
+            />
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
-  )
+            <SignupModal
+              onClose={closeActiveModal}
+              isOpen={activeModal === "signup"}
+              onLoginClick={handleLoginClick}
+            />
+
+            <Footer />
+          </div>
+        }
+      />
+
+      <Route path="/mig-welding" element={<MigWeldingPage />} />
+      <Route path="/tig-welding" element={<TigWeldingPage />} />
+      <Route path="/stick-welding" element={<StickWeldingPage />} />
+      <Route path="/my-requests" element={<MyRequests />} />
+    </Routes>
+  );
 }
 
-export default App
+export default App;

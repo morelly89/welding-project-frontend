@@ -1,0 +1,43 @@
+.welding-topic-card {
+  width: 100%;
+  max-width: 300px;
+  height: 360px;
+  overflow: hidden;
+  border-radius: 8px;
+  justify-self: center;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.welding-topic-card__image {
+  width: 100%;
+  height: 240px;
+  display: block;
+  object-fit: cover;
+}
+
+.welding-topic-card__content {
+  background-color: white;
+  height: 120px;
+  padding: 12px 14px;
+  box-sizing: border-box;
+}
+
+.welding-topic-card__title {
+  margin: 0 0 8px;
+  padding: 0;
+  font-size: 20px;
+  color: #111827;
+}
+
+.welding-topic-card__description {
+  width: 100%;
+  margin: 0;
+  color: #374151;
+  line-height: 1.4;
+  overflow: hidden;
+}
+
+.welding-topic-card__link {
+  cursor: pointer;
+}
