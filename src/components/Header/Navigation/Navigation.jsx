@@ -122,7 +122,7 @@ function Navigation({
           >
             {currentUser.profileImage ? (
               <img
-                src={`http://localhost:3001${currentUser.profileImage}`}
+                src={currentUser.profileImage}
                 alt="Profile"
                 className="navigation__profile-image"
               />
