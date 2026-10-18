@@ -28,17 +28,14 @@ function ProjectRequest({ isLoggedIn, onLoginClick, onSignupClick }) {
     const token = localStorage.getItem("jwt");
 
     try {
-      const response = await fetch(
-        "http://localhost:3001/api/project-requests",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify(formData),
+      const response = await fetch("/api/project-requests", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
-      );
+        body: JSON.stringify(formData),
+      });
 
       const data = await response.json();
 

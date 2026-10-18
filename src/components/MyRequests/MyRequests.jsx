@@ -9,7 +9,7 @@ function MyRequests() {
   useEffect(() => {
     const token = localStorage.getItem("jwt");
 
-    fetch("http://localhost:3001/api/project-requests", {
+    fetch("/api/project-requests", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -39,15 +39,12 @@ function MyRequests() {
     const token = localStorage.getItem("jwt");
 
     try {
-      const response = await fetch(
-        `http://localhost:3001/api/project-requests/${requestId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await fetch(`/api/project-requests/${requestId}`, {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       const data = await response.json();
 
