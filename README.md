@@ -184,4 +184,4 @@ The production setup uses:
 
 ## Video Walkthrough
 
-Video walkthrough coming soon.
+[Watch the Morelly Welding Project Walkthrough](https://drive.google.com/file/d/1a-J8P4TXxjte8i6UFWB99u1TYe7KYGP8/view?usp=sharing)
