@@ -1,0 +1,126 @@
+.stick-page {
+  min-height: 100vh;
+  background: #f6f6f6;
+  color: #1f1f1f;
+}
+
+.stick-page__hero {
+  padding: 90px 24px 70px;
+  background: #111;
+  color: white;
+  text-align: center;
+}
+
+.stick-page__hero h1 {
+  margin: 0 0 24px;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stick-page__hero p {
+  max-width: 850px;
+  margin: 0 auto 20px;
+  font-size: 18px;
+  line-height: 1.8;
+  text-align: left;
+}
+
+.stick-page__section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 70px 24px;
+}
+
+.stick-page__section + .stick-page__section {
+  border-top: 1px solid #d8d8d8;
+}
+
+.stick-page__section h2 {
+  margin: 0 0 30px;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stick-page__section h3 {
+  margin: 35px 0 16px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.stick-page__section p {
+  max-width: 800px;
+  margin: 0 0 22px;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.stick-page strong {
+  font-weight: 700;
+}
+
+.stick-page__cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 35px;
+}
+
+.stick-page__card {
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.stick-page__card h3 {
+  margin-top: 0;
+}
+
+.stick-page__technique-list {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.stick-page__technique-item {
+  max-width: 850px;
+}
+
+.stick-page__technique-item h3 {
+  margin: 0 0 16px;
+}
+
+@media screen and (max-width: 768px) {
+  .stick-page__hero {
+    padding: 60px 20px 50px;
+  }
+
+  .stick-page__hero h1 {
+    font-size: 42px;
+  }
+
+  .stick-page__hero p {
+    font-size: 16px;
+  }
+
+  .stick-page__section {
+    padding: 50px 20px;
+  }
+
+  .stick-page__section h2 {
+    font-size: 30px;
+  }
+
+  .stick-page__section p {
+    font-size: 16px;
+  }
+
+  .stick-page__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .stick-page__technique-list {
+    gap: 40px;
+  }
+}
