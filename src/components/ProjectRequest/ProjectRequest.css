@@ -160,13 +160,13 @@
   font-weight: 600;
   cursor: pointer;
   transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .project-request__form-button:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
 }
 
 .project-request__status {

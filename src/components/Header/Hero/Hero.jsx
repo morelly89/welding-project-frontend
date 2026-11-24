@@ -33,7 +33,11 @@ function Hero({ onLoginClick, isLoggedIn }) {
           </button>
         </div>
       </div>
-      <img className="hero__image" src={weldingPic}></img>
+      <img
+        className="hero__image"
+        src={weldingPic}
+        alt="Welder working on a metal fabrication project"
+      ></img>
     </div>
   );
 }

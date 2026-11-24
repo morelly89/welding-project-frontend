@@ -19,7 +19,10 @@ function WeldingTopicCard({ title, description, image, path }) {
         <p className="welding-topic-card__description">{description}</p>
 
         <a className="welding-topic-card__link" onClick={cardPageNavigator}>
-          Read More →
+          Read More{" "}
+          <span className="welding-topic-card__arrow" aria-hidden="true">
+            →
+          </span>
         </a>
       </div>
     </article>

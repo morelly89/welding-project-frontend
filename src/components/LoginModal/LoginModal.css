@@ -13,6 +13,16 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+.login-modal__error {
+  color: #ff6b00;
+  font-size: 12px;
+}
+
+.login-modal__submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .login-modal__container {
   position: relative;
 

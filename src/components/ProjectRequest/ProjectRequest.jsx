@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { checkResponse } from "../../utils/checkResponse";
 import "./ProjectRequest.css";
 import UnitConverter from "./UnitConverter/UnitConverter";
 
@@ -37,11 +38,7 @@ function ProjectRequest({ isLoggedIn, onLoginClick, onSignupClick }) {
         body: JSON.stringify(formData),
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Unable to submit request");
-      }
+      await checkResponse(response);
 
       setMessage("Project request sent successfully!");
 

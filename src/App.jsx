@@ -8,7 +8,9 @@ import Header from "./components/Header/Header";
 import LoginModal from "./components/LoginModal/LoginModal";
 import Main from "./components/Main/Main";
 import MyRequests from "./components/MyRequests/MyRequests";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 import SignupModal from "./components/SignupModal/SignupModal";
+import TermsAndConditions from "./pages/TermsAndConditions/TermsAndConditions";
 import MigWeldingPage from "./pages/WeldingTopicPages/MigWeldingPage/MigWeldingPage";
 import StickWeldingPage from "./pages/WeldingTopicPages/StickWeldingPage/StickWeldingPage";
 import TigWeldingPage from "./pages/WeldingTopicPages/TigWeldingPage/TigWeldingPage";
@@ -17,6 +19,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isAuthLoading, setIsAuthLoading] = useState(true);
 
   const closeActiveModal = () => {
     setActiveModal("");
@@ -49,13 +52,13 @@ function App() {
     const token = localStorage.getItem("jwt");
 
     if (!token) {
+      setIsAuthLoading(false);
       return;
     }
 
     const restoreUser = async () => {
       try {
         const data = await getCurrentUser(token);
-        console.log("Backend /me response:", data);
 
         setCurrentUser(data.user);
         setIsLoggedIn(true);
@@ -65,15 +68,16 @@ function App() {
         localStorage.removeItem("jwt");
         setCurrentUser(null);
         setIsLoggedIn(false);
+      } finally {
+        setIsAuthLoading(false);
       }
     };
 
     restoreUser();
   }, []);
-
   console.log("currentUser:", currentUser);
   console.log("isLoggedIn:", isLoggedIn);
-
+  console.log("isAuthLoading:", isAuthLoading);
   return (
     <Routes>
       <Route
@@ -115,7 +119,15 @@ function App() {
       <Route path="/mig-welding" element={<MigWeldingPage />} />
       <Route path="/tig-welding" element={<TigWeldingPage />} />
       <Route path="/stick-welding" element={<StickWeldingPage />} />
-      <Route path="/my-requests" element={<MyRequests />} />
+      <Route
+        path="/my-requests"
+        element={
+          <ProtectedRoute isLoggedIn={isLoggedIn} isAuthLoading={isAuthLoading}>
+            <MyRequests />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="/terms" element={<TermsAndConditions />} />
     </Routes>
   );
 }

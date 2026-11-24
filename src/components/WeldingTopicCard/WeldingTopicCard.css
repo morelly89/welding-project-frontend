@@ -40,4 +40,24 @@
 
 .welding-topic-card__link {
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #111111;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.welding-topic-card__link:hover {
+  color: #f97316;
+}
+
+.welding-topic-card__arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.welding-topic-card__link:hover .welding-topic-card__arrow {
+  transform: translateX(5px);
 }

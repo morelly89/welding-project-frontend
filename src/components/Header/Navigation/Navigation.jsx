@@ -123,7 +123,7 @@ function Navigation({
             {currentUser.profileImage ? (
               <img
                 src={currentUser.profileImage}
-                alt="Profile"
+                alt="Profile photo"
                 className="navigation__profile-image"
               />
             ) : (
@@ -154,63 +154,68 @@ function Navigation({
                 </div>
               </div>
 
-              {isEditing ? (
-                <div className="navigation__profile-edit-actions">
-                  <button
-                    className="navigation__profile-menu-button"
-                    type="button"
-                    onClick={handleSave}
-                  >
-                    Save
-                  </button>
+              <div className="navigation__profile-actions">
+                {isEditing ? (
+                  <div className="navigation__profile-edit-actions">
+                    <button
+                      className="navigation__profile-menu-button"
+                      type="button"
+                      onClick={handleSave}
+                    >
+                      Save
+                    </button>
 
+                    <button
+                      className="navigation__profile-menu-button"
+                      type="button"
+                      onClick={handleCancelEdit}
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                ) : (
                   <button
                     className="navigation__profile-menu-button"
                     type="button"
-                    onClick={handleCancelEdit}
+                    onClick={handleStartEdit}
                   >
-                    Cancel
+                    Edit Name
                   </button>
-                </div>
-              ) : (
+                )}
+
+                <input
+                  id="profile-image-input"
+                  type="file"
+                  accept="image/*"
+                  hidden
+                  onChange={handleImageChange}
+                />
+
                 <button
                   className="navigation__profile-menu-button"
                   type="button"
-                  onClick={handleStartEdit}
+                  onClick={() =>
+                    document.getElementById("profile-image-input").click()
+                  }
                 >
-                  Edit Name
+                  Change Photo
                 </button>
-              )}
 
-              <input
-                id="profile-image-input"
-                type="file"
-                accept="image/*"
-                hidden
-                onChange={handleImageChange}
-              />
-
-              <button
-                className="navigation__profile-menu-button"
-                type="button"
-                onClick={() =>
-                  document.getElementById("profile-image-input").click()
-                }
-              >
-                Change Photo
-              </button>
-
-              <button type="button" onClick={() => navigate("/my-requests")}>
-                My Requests
-              </button>
-
-              <button
-                className="navigation__profile-menu-button navigation__profile-menu-button_logout"
-                type="button"
-                onClick={onLogout}
-              >
-                Log Out
-              </button>
+                <button
+                  className="navigation__profile-menu-button"
+                  type="button"
+                  onClick={() => navigate("/my-requests")}
+                >
+                  My Requests
+                </button>
+                <button
+                  className="navigation__profile-menu-button navigation__profile-menu-button_logout"
+                  type="button"
+                  onClick={onLogout}
+                >
+                  Log Out
+                </button>
+              </div>
             </div>
           )}
         </div>

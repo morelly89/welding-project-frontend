@@ -134,15 +134,14 @@
   text-transform: uppercase;
 
   cursor: pointer;
-
   transition:
-    transform 0.15s ease,
-    opacity 0.15s ease;
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
 }
 
 .unit-converter__button:hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 20px rgba(255, 116, 23, 0.7);
 }
 
 .unit-converter__button:active {

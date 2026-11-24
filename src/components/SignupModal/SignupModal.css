@@ -14,6 +14,19 @@
   overflow-y: auto;
 }
 
+/* Validation error messages */
+.signup-modal__error {
+  color: #ff6b00;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Disabled signup button */
+.signup-modal__submit-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .signup-modal__container {
   position: relative;
 

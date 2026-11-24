@@ -1,3 +1,4 @@
+import { checkResponse } from "./checkResponse";
 const API_URL = "";
 
 export const signup = async (userData) => {
@@ -9,13 +10,7 @@ export const signup = async (userData) => {
     body: JSON.stringify(userData),
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "Signup failed");
-  }
-
-  return data;
+  return checkResponse(response);
 };
 
 export const login = async (userData) => {
@@ -27,13 +22,7 @@ export const login = async (userData) => {
     body: JSON.stringify(userData),
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "Login failed");
-  }
-
-  return data;
+  return checkResponse(response);
 };
 
 export const getCurrentUser = async (token) => {
@@ -44,13 +33,7 @@ export const getCurrentUser = async (token) => {
     },
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "Unable to get current user");
-  }
-
-  return data;
+  return checkResponse(response);
 };
 
 export const updateCurrentUser = async (token, userData) => {
@@ -63,13 +46,7 @@ export const updateCurrentUser = async (token, userData) => {
     body: JSON.stringify(userData),
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "Unable to update profile");
-  }
-
-  return data;
+  return checkResponse(response);
 };
 
 export const updateProfileImage = async (token, file) => {
@@ -85,11 +62,5 @@ export const updateProfileImage = async (token, file) => {
     body: formData,
   });
 
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || "Unable to update profile image");
-  }
-
-  return data;
+  return checkResponse(response);
 };

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { checkResponse } from "../../utils/checkResponse";
 import "./MyRequests.css";
 
 function MyRequests() {
@@ -46,11 +47,7 @@ function MyRequests() {
         },
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || "Unable to cancel request.");
-      }
+      await checkResponse(response);
 
       setProjectRequests((requests) =>
         requests.filter((request) => request._id !== requestId),
