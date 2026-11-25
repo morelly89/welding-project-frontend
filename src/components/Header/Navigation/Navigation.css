@@ -1,0 +1,346 @@
+/* ========================================
+   NAVIGATION LAYOUT
+======================================== */
+
+.navigation {
+  display: flex;
+  justify-content: space-around;
+}
+
+.navigation__title {
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+.navigation__title span {
+  color: #f97316;
+}
+
+/* ========================================
+   NAVIGATION LINKS
+======================================== */
+
+.navigation__link-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 550px;
+  height: 39px;
+}
+
+.navigation__link {
+  color: #808080;
+  font-family: "Inter", sans-serif;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.navigation__link:hover {
+  color: #f97316;
+}
+
+/* ========================================
+   LOGIN BUTTON
+======================================== */
+
+.navigation__login-button {
+  width: 120px;
+  height: 40px;
+  margin-left: 60px;
+
+  background-color: transparent;
+  color: #f97316;
+  border: 2px solid #f97316;
+  border-radius: 8px;
+
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.navigation__login-button:hover {
+  animation: lightningFlash 0.5s ease;
+}
+
+/* ========================================
+   PROFILE SECTION
+======================================== */
+
+.navigation__profile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: transparent;
+}
+
+.navigation__profile {
+  position: relative;
+  margin-left: 60px;
+  z-index: 1000;
+}
+
+.navigation__profile-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #f97316;
+  border-radius: 50%;
+
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.navigation__profile-button:hover {
+  box-shadow: 0 0 15px #f97316;
+  transform: scale(1.08);
+}
+
+.navigation__profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* ========================================
+   PROFILE DROPDOWN
+======================================== */
+
+.navigation__profile-menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  width: 280px;
+  max-width: calc(100vw - 24px);
+  padding: 20px;
+  box-sizing: border-box;
+
+  background-color: #111111;
+  border: 1px solid #f97316;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* ========================================
+   PROFILE INFORMATION
+======================================== */
+
+.navigation__profile-info {
+  padding-bottom: 14px;
+  border-bottom: 1px solid #333333;
+}
+
+.navigation__profile-name {
+  margin: 0 0 8px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navigation__profile-email {
+  margin: 0;
+  color: #cccccc;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+.navigation__profile-name-input {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+
+  background-color: #222222;
+  color: #ffffff;
+  border: 1px solid #f97316;
+  border-radius: 6px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+/* ========================================
+   PROFILE ACTION BUTTONS
+======================================== */
+
+.navigation__profile-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.navigation__profile-edit-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation__profile-edit-actions .navigation__profile-menu-button {
+  flex: 1;
+  min-width: 0;
+}
+
+.navigation__profile-menu-button {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 7px 10px;
+
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #f97316;
+  border-radius: 6px;
+
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+  cursor: pointer;
+
+  transition:
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+.navigation__profile-menu-button:hover {
+  background-color: rgba(249, 115, 22, 0.1);
+  box-shadow: 0 0 10px #f97316;
+  transform: scale(1.03);
+}
+
+/* ========================================
+   KEYBOARD FOCUS
+======================================== */
+
+.navigation__profile-menu-button:focus-visible,
+.navigation__profile-button:focus-visible,
+.navigation__login-button:focus-visible,
+.navigation__link:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   LIGHTNING ANIMATION
+======================================== */
+
+@keyframes lightningFlash {
+  0% {
+    background-color: black;
+  }
+
+  50% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: black;
+  }
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+======================================== */
+
+@media screen and (max-width: 900px) {
+  .navigation {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .navigation__link-container {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .navigation__login-button,
+  .navigation__profile {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navigation__profile-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(260px, calc(100vw - 32px));
+    padding: 16px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation__title {
+    font-size: 28px;
+  }
+
+  .navigation__link {
+    font-size: 14px;
+  }
+
+  .navigation__profile-button {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* .navigation__profile-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+
+    width: min(260px, calc(100vw - 32px));
+    padding: 16px;
+  } */
+
+  .navigation__profile-menu-button {
+    min-height: 44px;
+    padding: 9px 10px;
+  }
+}
+
+/* ========================================
+   REDUCED MOTION ACCESSIBILITY
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation__login-button:hover {
+    animation: none;
+    background-color: #f97316;
+    color: #111111;
+  }
+
+  .navigation__profile-button,
+  .navigation__profile-menu-button,
+  .navigation__link {
+    transition: none;
+  }
+
+  .navigation__profile-button:hover,
+  .navigation__profile-menu-button:hover {
+    transform: none;
+  }
+}
