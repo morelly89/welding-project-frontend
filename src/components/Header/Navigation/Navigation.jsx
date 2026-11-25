@@ -77,6 +77,10 @@ function Navigation({
     }
   };
 
+  const handleCloseProfileMenu = () => {
+    setIsProfileMenuOpen(false);
+  };
+
   return (
     <nav className="navigation">
       <h1 className="navigation__title">
@@ -132,91 +136,98 @@ function Navigation({
           </button>
 
           {isProfileMenuOpen && (
-            <div className="navigation__profile-menu">
-              <div className="navigation__profile-info">
-                <div>
-                  {isEditing ? (
-                    <input
-                      className="navigation__profile-name-input"
-                      type="text"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  ) : (
-                    <p className="navigation__profile-name">
-                      {currentUser.name}
+            <>
+              <div
+                className="navigation__profile-overlay"
+                onClick={handleCloseProfileMenu}
+                aria-hidden="true"
+              />
+              <div className="navigation__profile-menu">
+                <div className="navigation__profile-info">
+                  <div>
+                    {isEditing ? (
+                      <input
+                        className="navigation__profile-name-input"
+                        type="text"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
+                    ) : (
+                      <p className="navigation__profile-name">
+                        {currentUser.name}
+                      </p>
+                    )}
+
+                    <p className="navigation__profile-email">
+                      {currentUser.email}
                     </p>
+                  </div>
+                </div>
+
+                <div className="navigation__profile-actions">
+                  {isEditing ? (
+                    <div className="navigation__profile-edit-actions">
+                      <button
+                        className="navigation__profile-menu-button"
+                        type="button"
+                        onClick={handleSave}
+                      >
+                        Save
+                      </button>
+
+                      <button
+                        className="navigation__profile-menu-button"
+                        type="button"
+                        onClick={handleCancelEdit}
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  ) : (
+                    <button
+                      className="navigation__profile-menu-button"
+                      type="button"
+                      onClick={handleStartEdit}
+                    >
+                      Edit Name
+                    </button>
                   )}
 
-                  <p className="navigation__profile-email">
-                    {currentUser.email}
-                  </p>
-                </div>
-              </div>
+                  <input
+                    id="profile-image-input"
+                    type="file"
+                    accept="image/*"
+                    hidden
+                    onChange={handleImageChange}
+                  />
 
-              <div className="navigation__profile-actions">
-                {isEditing ? (
-                  <div className="navigation__profile-edit-actions">
-                    <button
-                      className="navigation__profile-menu-button"
-                      type="button"
-                      onClick={handleSave}
-                    >
-                      Save
-                    </button>
-
-                    <button
-                      className="navigation__profile-menu-button"
-                      type="button"
-                      onClick={handleCancelEdit}
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                ) : (
                   <button
                     className="navigation__profile-menu-button"
                     type="button"
-                    onClick={handleStartEdit}
+                    onClick={() =>
+                      document.getElementById("profile-image-input").click()
+                    }
                   >
-                    Edit Name
+                    Change Photo
                   </button>
-                )}
 
-                <input
-                  id="profile-image-input"
-                  type="file"
-                  accept="image/*"
-                  hidden
-                  onChange={handleImageChange}
-                />
-
-                <button
-                  className="navigation__profile-menu-button"
-                  type="button"
-                  onClick={() =>
-                    document.getElementById("profile-image-input").click()
-                  }
-                >
-                  Change Photo
-                </button>
-
-                <button
-                  className="navigation__profile-menu-button"
-                  type="button"
-                  onClick={() => navigate("/my-requests")}
-                >
-                  My Requests
-                </button>
-                <button
-                  className="navigation__profile-menu-button navigation__profile-menu-button_logout"
-                  type="button"
-                  onClick={onLogout}
-                >
-                  Log Out
-                </button>
+                  <button
+                    className="navigation__profile-menu-button"
+                    type="button"
+                    onClick={() => navigate("/my-requests")}
+                  >
+                    My Requests
+                  </button>
+                  <button
+                    className="navigation__profile-menu-button navigation__profile-menu-button_logout"
+                    type="button"
+                    onClick={onLogout}
+                  >
+                    Log Out
+                  </button>
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
       ) : (

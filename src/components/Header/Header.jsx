@@ -8,6 +8,7 @@ function Header({
   isLoggedIn,
   onLogout,
   onUserUpdate,
+  onClose,
 }) {
   return (
     <header className="header" id="home">

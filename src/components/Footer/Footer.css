@@ -90,6 +90,7 @@
   .footer__contact-item {
     overflow-wrap: anywhere;
     word-break: break-word;
+    font-size: 14px;
   }
 
   .footer__brand {

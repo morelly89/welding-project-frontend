@@ -67,9 +67,17 @@
    PROFILE SECTION
 ======================================== */
 
+.navigation__profile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background-color: transparent;
+}
+
 .navigation__profile {
   position: relative;
   margin-left: 60px;
+  z-index: 1000;
 }
 
 .navigation__profile-button {
@@ -275,6 +283,16 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .navigation__profile-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: min(260px, calc(100vw - 32px));
+    padding: 16px;
+  }
+}
+
 @media screen and (max-width: 480px) {
   .navigation__title {
     font-size: 28px;
@@ -289,10 +307,14 @@
     height: 32px;
   }
 
-  .navigation__profile-menu {
+  /* .navigation__profile-menu {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+
     width: min(260px, calc(100vw - 32px));
     padding: 16px;
-  }
+  } */
 
   .navigation__profile-menu-button {
     min-height: 44px;
